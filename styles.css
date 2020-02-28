@@ -1,0 +1,71 @@
+@import "https://fonts.googleapis.com/css?family=Roboto&display=swap";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0
+}
+
+header {
+  display: grid;
+  grid-template-columns: 0.30fr 1fr 1fr;
+}
+
+header a{
+  width: 95px;
+  margin-left: 30px;
+  margin-top: 32px;
+  font-size: 16px;
+  line-height: 19px;
+  color: black;
+  position: relative;
+  top: 36px;
+  left: 66px;
+  text-decoration: none;
+}
+
+body {
+  font-family: Roboto;
+}
+
+header img {
+  position: 231px 36px;
+  padding-left: 220px;
+  padding-top: 32px;
+}
+
+.banner-index {
+  max-width: 940px;
+  height: 366px;
+  background-color: #FBDFDB;
+  border-radius: 30px;
+  margin: 30px auto;
+}
+
+.banner-index .title {
+  position: absolute;
+  margin-top: 117px;
+  margin-left: 60px;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+.banner-index .text {
+  position: absolute;
+  margin-top: 165px;
+  margin-left: 60px;
+  width: 316px;
+  height: 84px;
+  font-size: 18px;
+  line-height: 28px;
+  opacity: 70%;
+}
+
+.chef-img img {
+  position: relative;
+  width: 216px;
+  height: 300px;
+  left: 624px;
+  top: 66px;
+  right: 100px;
+}
