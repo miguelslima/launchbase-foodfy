@@ -117,6 +117,7 @@ footer span {
   height: 140px;
   border-radius: 15px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .card-title p {

@@ -11,35 +11,41 @@ server.set("view engine", "njk");
 nunjucks.configure("views", {
   express: server,
   autoescape: false,
-	noCache: true
+  noCache: true
 })
 
-server.get("/", function(req, res) {
-  return res.render("index", { items: recipes})
+server.get("/", function (req, res) {
+  let recipesFiltered = []
+
+  for (let i = 0; i < 6; i++) {
+    recipesFiltered.push(recipes[i])
+  }
+  return res.render("index", { items: recipesFiltered })
 })
 
-server.get("/about", function(req, res) {
+
+server.get("/about", function (req, res) {
   return res.render("about")
 })
 
-server.get("/recipes", function(req, res) {
-  return res.render("recipes", { items: recipes})
+server.get("/recipes", function (req, res) {
+  return res.render("recipes", { items: recipes })
 })
 
-server.get("/recipes/:index", function (req, res) { 
-  const {index: receiptIndex} = req.params;
+server.get("/recipes/:index", function (req, res) {
+  const { index: receiptIndex } = req.params;
 
   const recipe = recipes[receiptIndex];
 
   if (!recipe) return res.render("not-found")
-  
+
   return res.render('receipt', { item: recipe })
 })
 
-server.use(function(req, res) {
+server.use(function (req, res) {
   res.status(404).render("not-found")
 })
 
-server.listen(5000., function() {
+server.listen(5000., function () {
   console.log("Server is running");
 }); 
