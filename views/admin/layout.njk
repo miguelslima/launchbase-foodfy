@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  {% block head%}
+  <title>Foodfy</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/receipt.css">
+  {%endblock%}
+  
+</head>
+
+<body>
+  <header>
+    <a href="/"><img src="/assets/logo.png" alt="Logo Foodfty"></a>
+    <div class="menu">
+      <a href="about">Sobre</a>
+      <a href="/recipes">Receitas</a>
+    </div>
+
+  </header>
+
+  {% block content %} 
+
+  {% endblock %}
+
+  <footer class="footer">
+    <p>Todos direitos reservados, receitas Foodfy - <span>2020 </span>®</p>
+  </footer>
+  <script src="/scripts.js"></script>
+
+</body>
+
+</html>

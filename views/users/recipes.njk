@@ -5,7 +5,13 @@
 {% block head %}
     <title>Receitas</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/receipt.css">
 {% endblock %}
+
+
+  <div class="wrapper">
+    <a href="admin/recipes/create" class="add">Nova receita</a>
+  </div>
 
   <section class="cards">
     {% for recipe in recipes %}
