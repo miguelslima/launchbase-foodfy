@@ -11,7 +11,8 @@ for (let card of cards) {
 for (let button of buttons) {
 	button.addEventListener('click', function() {
     if (!button) return
-
+    
+  
 		let details = button.parentElement.nextElementSibling
 
 		if (button.innerHTML === 'MOSTRAR') {
