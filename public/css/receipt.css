@@ -196,15 +196,31 @@ input {
   border-bottom: 1px solid #ddd;
 }
 
-button[type="submit"] {
+button[type="submit"],
+.addRecipe {
   margin-top: 16px;
-  padding: 16px 32px;
+  padding: 8px 16px;
   text-decoration: none;
   background-color: rgb(67, 179, 67);
   font-weight: bold;
   border-radius: 4px;
   color: black;
 }
+
+.form-recipe{
+  padding-top: 10px;
+  padding-left: 220px;
+  display: flex;  
+}
+
+.addRecipe {
+  margin-left: 580px;
+}
+
 span #delete {
   display: inline;
+}
+
+.adminLogin {
+  opacity: 0.5;
 }
