@@ -42,6 +42,9 @@ exports.edit = function(req, res){
 }
 
 exports.post = function(req, res){
+
+    let ingredients = [];
+    let preparations = [];
     const keys = Object.keys(req.body)
     
     for(key of keys){
@@ -59,6 +62,8 @@ exports.post = function(req, res){
   
     data.recipes.push({
       id,
+      ingredients,
+      preparations,
       ...req.body
     })
     
@@ -66,14 +71,14 @@ exports.post = function(req, res){
     fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err){
       if(err) res.send("Write file error!")
       
-      res.redirect(`recipes/${id}`)
+      res.redirect(`/recipes/${id}`)
     })
   }
   
 exports.put = function(req, res) {
   const { id } = req.body;
   let index = 0;
-  const foundRecipe = data.instructors.find(function(recipes, foundIndex){
+  const foundRecipe = data.recipes.find(function(recipes, foundIndex){
     if(id == recipes.id) {
       index = foundIndex;
       return true;
@@ -95,7 +100,7 @@ exports.put = function(req, res) {
   fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
     if(err) return res.send("Write error!");
     
-    return res.redirect(`/recipes/${id}`);
+    return res.redirect(`/admin/recipes/${id}`);
   })
 }
 

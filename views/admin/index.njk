@@ -1,16 +1,13 @@
 {% extends "admin/layout.njk" %}
 
 {% block content %}
-  <section>
-    <div class="banner-index">
-      <p class="title">As melhores receitas</p>
-      <p class="text">Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.
-      </p>
-      <div class="chef-img">
-        <img src="/assets/chef.png" alt="chef">
-      </div>
+  <section id="admin">
+    <div class="form-recipe">
+      <h1>Gerenciar Receitas</h1>
+      <span>
+        <a href="recipes/create" class="addRecipe">Adicionar receita</a>
+      </span>
     </div>
-  </section>
 
   <section class="cards">
     {% for recipe in recipes %}

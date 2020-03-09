@@ -8,11 +8,6 @@
     <link rel="stylesheet" href="/css/receipt.css">
 {% endblock %}
 
-
-  <div class="wrapper">
-    <a href="admin/recipes/create" class="add">Nova receita</a>
-  </div>
-
   <section class="cards">
     {% for recipe in recipes %}
     <div class="card" id="{{loop.index-1}}">

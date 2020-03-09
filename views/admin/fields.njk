@@ -1,3 +1,4 @@
+<div class="form">
   <div class="item">
     <div>Imagem</div>
     <div>
@@ -38,7 +39,9 @@
 
   <div class="item">
     <div>Ingredientes</div>
-    <div>
+    {%if recipe%}
+    {% for ingredient in recipe.ingredients %}
+    <div class="ingredient">
       <input 
         type="text" 
         name="ingredients" 
@@ -46,18 +49,44 @@
         value="{{ recipe.ingredients }}"
       >
     </div>
+    {% endfor %}
+
+    {% else %}
+    <div class="ingredient">
+      <input
+        type="text"
+        name="ingredient[]"
+      >
+    </div>
+    {%endif%}
   </div>
 
   <div class="item">
     <div>Preparação</div>
-    <div>
-      <input 
-        type="text" 
-        name="preparations" 
-        placeholder="Modo de preparo"
-        value="{{ recipe.preparations }}"
-      >
+    <div id="preparations">
+
+        {% if recipe %}
+
+        {% for preparation in recipe.preparations %}
+        <div class="preparation">
+          <input
+            type="text"
+            name="preparations[]"
+            value="{{preparation}}"
+          >
+        </div>
+        {%endfor%}
+      {%else%}
+
+      <div class="preparation">
+          <input
+            type="text"
+            name="preparations[]"
+          >
+        </div>
+      {%endif%}
     </div>
+    <button type="button" class="add-preparation">Adicionar novo passo</button>
   </div>
 
 
@@ -72,5 +101,5 @@
       >
     </div>
   </div>
-
+</section>
   <button type="submit">Salvar</button>
