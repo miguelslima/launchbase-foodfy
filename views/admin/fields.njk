@@ -55,7 +55,8 @@
     <div class="ingredient">
       <input
         type="text"
-        name="ingredient[]"
+        name="ingredients[]"
+        value="{{recipe.ingredients}}"
       >
     </div>
     {%endif%}
@@ -72,7 +73,7 @@
           <input
             type="text"
             name="preparations[]"
-            value="{{preparation}}"
+            value="{{recipe.preparation}}"
           >
         </div>
         {%endfor%}
