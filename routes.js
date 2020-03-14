@@ -7,9 +7,9 @@ routes.get('/', function(req, res){
   return res.redirect('/users')
 })
 routes.get('/users', users.index)
-routes.get('/about', users.about)
-routes.get('/recipes', users.recipes)
-routes.get('/recipes/:index', users.show)
+routes.get('/users/about', users.about)
+routes.get('/users/recipes', users.recipes)
+routes.get('/users/recipes/:index', users.show)
 
 routes.get("/admin/recipes", recipes.index); // Mostrar a lista de receitas
 routes.get("/admin/recipes/create", recipes.create); // Mostrar formulário de nova receita

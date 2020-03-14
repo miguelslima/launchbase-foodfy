@@ -191,70 +191,6 @@
     },
     {
       "id": 9,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
-      "title": "Bolo",
-      "author": "Miguel",
-      "ingredients": "Nutella",
-      "preparations": "Nutella",
-      "informations": "Colocar nutela com oreo"
-    },
-    {
-      "id": 10,
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
-      "title": "Cacau",
-      "author": "Miguel LIma",
-      "ingredients": "Mamao, maçã, bolo",
-      "preparations": "Jajaja, ajajajaja, ajajaj",
-      "informations": "Nutela"
-    },
-    {
-      "id": 11,
-      "ingredients": "Mamao, maçã, bolo",
-      "preparations": "Jajaja, ajajajaja, ajajaj",
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
-      "title": "Bolo",
-      "author": "Miguel LIma",
-      "informations": "Colocar nutela com oreo"
-    },
-    {
-      "id": 12,
-      "preparations": [
-        "Adadada "
-      ],
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
-      "title": "Bolo",
-      "author": "Miguel",
-      "ingredients": [
-        "macarrao atum lasanha"
-      ],
-      "informations": "asdasdadsasdssa"
-    },
-    {
-      "id": 13,
-      "preparations": [
-        "Misture todos os ingredientes muito bem e amasse para que fique tudo muito bem misturado.",
-        "Faça porções de 90 g a 100 g.",
-        "Forre um plástico molhado em uma bancada e modele os hambúrgueres utilizando um aro como base.",
-        "Faça um de cada vez e retire o aro logo em seguida.",
-        "Forre uma assadeira de metal com plástico, coloque os hambúrgueres e intercale camadas de carne e plásticos (sem apertar).",
-        "Faça no máximo 4 camadas por forma e leve para congelar.",
-        "Retire do congelador, frite ou asse e está pronto."
-      ],
-      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
-      "title": "Bolo",
-      "author": "Miguel",
-      "ingredients": [
-        "3 kg de carne moída (escolha uma carne magra e macia)",
-        "300 g de bacon moído",
-        "1 ovo",
-        "3 colheres (sopa) de farinha de trigo",
-        "3 colheres (sopa) de tempero caseiro: feito com alho, sal, cebola, pimenta e cheiro verde processados no liquidificador",
-        "30 ml de água gelada"
-      ],
-      "informations": "asdasdadsasdssa"
-    },
-    {
-      "id": 14,
       "ingredients": [
         "siisjsijids, ijsdjisjsidijsjids, jisdiidisijjisijds"
       ],
@@ -263,8 +199,25 @@
       ],
       "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
       "title": "Kakakakkakaka",
-      "author": "Miguel LIma",
+      "author": "IIiiiiisissisisis",
       "informations": "asasasasaaasa"
+    },
+    {
+      "id": 10,
+      "ingredients": [
+        "aaaa",
+        "siisjsijids, ijsdjisjsidijsjids, jisdiidisijjisijds",
+        ""
+      ],
+      "preparations": [
+        "Ajajajajja ajajajjaja anananannana",
+        "aaaaaaaaaaaaaaa aasasasasas",
+        ""
+      ],
+      "image": "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/launchbase/receitas/burger.png",
+      "title": "Kakakakkakaka",
+      "author": "Miguel",
+      "informations": "Colocar nutela com oreo"
     }
   ]
 }

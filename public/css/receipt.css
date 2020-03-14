@@ -8,6 +8,8 @@
 header {
   display: grid;
   grid-template-columns: 0.31fr 1fr 1fr;
+  background-color: black;
+  
 }
 
 .menu a{
@@ -31,6 +33,7 @@ header {
 header img {
   padding-left: 220px;
   padding-top: 32px;
+  padding-bottom: 12px;  
 }
 
 footer {
@@ -56,6 +59,13 @@ footer span {
   margin-left: 220px;
 }
 
+.wrapper h1{
+  padding-top: 55px;
+  font-size: 24px;
+  display: inline-block;
+}
+
+
 .receipt, .info {
   padding-top: 56px;
 }
@@ -64,10 +74,10 @@ footer span {
   max-width: 940px;
   height: 280px;
   border-radius: 15px;
-  padding-bottom: 50px;
 }
 
 .head-group {
+  padding-top: 50px ;
   max-width: 940px;
   text-align: center;
 }
@@ -170,12 +180,14 @@ input {
   margin: 5px 0;
   outline: none;
 }
-.item div div input[type=text] {
-  padding: 0.2em;
-    border: 1px solid #CCC;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-    display: block;
 
+.item div div input[type=text] {
+  padding: 5px;
+  border: 1px solid #DDDDDD;
+  background: #FFFFFF;
+  border-radius: 4px 4px;
+  width: 910px;
+  height: auto;
 }
 
 .details h3 {

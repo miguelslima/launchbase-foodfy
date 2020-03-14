@@ -67,7 +67,7 @@ exports.post = function(req, res){
     fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err){
       if(err) res.send("Write file error!")
       
-      res.redirect(`/recipes/${id}`)
+      res.redirect(`/admin/recipes/${id}`)
     })
   }
   
@@ -112,6 +112,6 @@ exports.delete = function(req, res) {
   fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err) {
     if(err) return res.send("Write error!");
 
-    return res.redirect("/recipes");
+    return res.redirect("/admin/recipes");
   })
 }

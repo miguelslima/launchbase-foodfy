@@ -1,65 +1,68 @@
-{%extends 'admin/layout.njk'%}
+{% extends "admin/layout.njk" %}
+
+{% block head %}
+<title>Receita - {{recipe.title}}</title>
+<link rel="stylesheet" href="/css/receipt.css">
+{% endblock %}
+
 {% block content %}
 
-  {% block title %}
-
-    <title>{{ recipe.title }}</title>
-
-  {% endblock %}
-
-    <section id="view">
-    <div class="recipe-info">
-      <h2>Receita: {{ recipe.title }}</h2>
-      <span>
-        <a href="{{ recipe.id }}/edit" class="button">Editar receita</a>
-      </span>
-    </div>
-
-    <div class="card">
-      <div class="card-image">
-        <img src="{{ recipe.image }}">
-      </div>
-      <div class="card-title">
-        <p>{{ recipe.title }}</p>
-      </div>
-      <div class="card_author">
-        <p>por {{ recipe.author }}</p>
+<div class="wrapper">
+  <h1>{{recipe.title}}</h1>       
+  <span>
+    <a href="{{ recipe.id }}/edit" class="addRecipe">Editar receita</a>
+  </span>
+  <div class="receipt">
+    <div class="receipt-header">
+      <img src="{{recipe.image}}" alt="{{recipe.title}}" />
+      <div class="head-group">
+        <h2>{{recipe.title}}</h2>
+        <p>por {{recipe.author}}</p>
       </div>
     </div>
 
-    <div id="ingredients">
-      <div>
-        <h2>Ingredientes</h2>
-      </div>
-      <div>
-        <ul>
-          {% for ingredient in recipe.ingredients %}
-          <li>{{ ingredient }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
+    <div class="receipt-content">
+      <div id="ingredients" class="topic">
+        <div class="sub-head">
+          <h3>Ingredientes</h3>
+          <button class="toggleContent">ESCONDER</button>
+        </div>
 
-    <div id="preparation">
-      <div>
-        <h2>Modo de Preparo</h2>
+        <div class="topic-content">
+          <ul>
+            {% for ingredient in recipe.ingredients %}
+              <li>{{ingredient}}</li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
-      <div>
-        <ul>
-          {% for preparation in recipe.preparations %}
-          <li>{{ preparation }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
 
-    <div id="information">
-      <div>
-        <h2>Informações adicionais</h2>
+      <div id="preparation" class="topic">
+        <div class="sub-head">
+          <h3>Modo de preparo</h3>
+          <button class="toggleContent">ESCONDER</button>
+        </div>
+
+        <div class="topic-content">
+          <ul>
+            {% for preparation in recipe.preparations %}
+              <li>{{preparation}}</li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
-      <div>
-        <p>{{ recipe.informations }}</p>
+
+      <div id="information" class="topic">
+        <div class="sub-head">
+          <h3>Informações adicionais</h3>
+          <button class="toggleContent">ESCONDER</button>
+        </div>
+
+        <div class="topic-content">
+          <p>{{recipe.informations}}</p>
+        </div>
       </div>
     </div>
-  </section>
-{% endblock content %}
+  </div>
+</div>
+{% endblock %}

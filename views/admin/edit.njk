@@ -11,6 +11,7 @@
     <div class="delete">  
       <span>
         <form id="delete" method="POST" action="/admin/recipes?_method=DELETE">
+          <input type="hidden" name="id" value="{{ recipe.id }}">
           <button type="submit">Deletar receita</button>
       </span>
     </div>

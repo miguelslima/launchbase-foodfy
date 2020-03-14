@@ -39,53 +39,65 @@
 
   <div class="item">
     <div>Ingredientes</div>
-    {%if recipe%}
-    {% for ingredient in recipe.ingredients %}
-    <div class="ingredient">
-      <input 
-        type="text" 
-        name="ingredients" 
-        placeholder="Ingredientes"
-        value="{{ recipe.ingredients }}"
-      >
-    </div>
-    {% endfor %}
 
-    {% else %}
-    <div class="ingredient">
-      <input
-        type="text"
-        name="ingredients[]"
-        value="{{recipe.ingredients}}"
-      >
+    <div id="create-ingredients">
+      {% if recipe %}
+
+      {% for ingredient in recipe.ingredients %}
+      <div class="ingredient">
+        <input
+          type="text"
+          name="ingredients[]"
+          placeholder="Ingredientes"
+          value="{{ ingredient }}"
+        >
+      </div>
+      {% endfor %}
+    
+      {% else %}
+
+      <div class="ingredient">
+        <input 
+          type="text" 
+          placeholder="Ingredientes"
+          name="ingredients[]" 
+        >
+      </div>
+      {% endif %}
     </div>
-    {%endif%}
+    <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>  
   </div>
 
   <div class="item">
     <div>Preparação</div>
     <div id="preparations">
 
-        {% if recipe %}
+        <div id="preparations">
 
-        {% for preparation in recipe.preparations %}
+          {% if recipe %}
+
+          {% for preparation in recipe.preparations %}
+          <div class="preparation">
+            <input
+              type="text"
+              name="preparations[]"
+              placeholder="Ingredientes"
+              value="{{preparation}}"
+            >
+          </div>
+          {%endfor%}
+        {%else%}
+
         <div class="preparation">
-          <input
-            type="text"
-            name="preparations[]"
-            value="{{recipe.preparation}}"
-          >
-        </div>
-        {%endfor%}
-      {%else%}
-
-      <div class="preparation">
-          <input
-            type="text"
-            name="preparations[]"
-          >
-        </div>
-      {%endif%}
+            <input
+              type="text"
+              name="preparations[]"
+              placeholder="Ingredientes"
+              value="{{preparation}}"
+            >
+          </div>
+        {%endif%}
+      </div>
     </div>
     <button type="button" class="add-preparation">Adicionar novo passo</button>
   </div>
