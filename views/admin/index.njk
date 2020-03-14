@@ -9,22 +9,25 @@
       </span>
     </div>
 
-  <section class="cards">
+  <section class="cards-admin">
     {% for recipe in recipes %}
     <div class="card" id="{{loop.index -1}}">
       <div class="card__image">
         <img src="{{recipe.image}}">
       </div>
-      <div class="card-title">
-        <p>{{recipe.title}}</p>
-      </div>
-      <div class="card-author">
-        <p>{{recipe.author}}</p>
+      <div class="card-info">
+        <div class="card-title">
+          <p>{{recipe.title}}</p>
+        </div>
+        <div class="card-author">
+          <p>{{recipe.author}}</p>
+        </div>
+        <a href="recipes/{{recipe.id}}">Visualizar</a>
       </div>
     </div>
     {% endfor %}
   </section>
 
   
-{%endblock%}
+{%endblock content%}
   

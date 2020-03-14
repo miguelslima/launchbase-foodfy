@@ -5,11 +5,14 @@
   font-family: Roboto;
 }
 
+body, html{
+  width: 100%;
+}
+
 header {
-  display: grid;
-  grid-template-columns: 0.31fr 1fr 1fr;
+  width: 100%;
+  height: 80px  ;
   background-color: black;
-  
 }
 
 .menu a{
@@ -64,7 +67,6 @@ footer span {
   font-size: 24px;
   display: inline-block;
 }
-
 
 .receipt, .info {
   padding-top: 56px;
@@ -210,7 +212,7 @@ input {
 
 button[type="submit"],
 .addRecipe {
-  margin-top: 16px;
+  margin-top: 32px;
   padding: 8px 16px;
   text-decoration: none;
   background-color: rgb(67, 179, 67);
@@ -219,14 +221,18 @@ button[type="submit"],
   color: black;
 }
 
-.form-recipe{
-  padding-top: 10px;
-  padding-left: 220px;
-  display: flex;  
+.form-recipe h1 {
+  padding-right: 580px;
 }
 
-.addRecipe {
-  margin-left: 580px;
+.form-recipe span {
+  right: 800px;
+}
+
+.form-recipe{
+  padding-top: 50px;
+  padding-left: 220px;
+  display: flex; 
 }
 
 span #delete {
@@ -235,4 +241,67 @@ span #delete {
 
 .adminLogin {
   opacity: 0.5;
+}
+
+/* Index Admin */
+
+.container{
+  margin-left: 18%;
+  
+}
+
+header.admin {
+  background-color: black;
+  width: 100%;
+  height: 100px;
+  padding: 36px;
+  
+}
+
+.cards-admin{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 30px;
+  padding-left: 215px;
+  padding-right: 215px;
+  gap: 20px;
+
+}
+
+.cards-admin .card{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cards-admin .card .card__image{
+  width: 230px;
+  height: 100px;
+}
+
+.cards-admin .card .card__image img{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.cards-admin .card-title h2{
+  width: 260px;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.cards-admin .card-author p{
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #777;
+  font-weight: normal;
+}
+
+.cards-admin a{
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 16px;
+  color: #6558C3;
 }
