@@ -165,14 +165,15 @@ footer span {
 }
 
 .wrapper a.add  {
-  position: absolute;
-  padding: 12px;
-  text-decoration: none;
-  background-color: rgb(67, 179, 67);
-  font-weight: bold;
+  padding: 8px 24px;
+  background-color: #6558C3; 
+  color: white;
   border-radius: 4px;
-  color: black;
+  margin-top: 32px;
+  font-size: 16px;
+  text-decoration: none;
 }
+
 
 /* Create */
 
@@ -222,13 +223,13 @@ input {
 
 button[type="submit"],
 .addRecipe {
-  margin-top: 32px;
-  padding: 8px 16px;
-  text-decoration: none;
-  background-color: rgb(67, 179, 67);
-  font-weight: bold;
+  padding: 8px 24px;
+  background-color: #6558C3; 
+  color: white;
   border-radius: 4px;
-  color: black;
+  margin-top: 32px;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 .form-recipe h1 {
