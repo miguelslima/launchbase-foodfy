@@ -2,6 +2,7 @@ const express = require('express');
 const routes = express.Router();
 const users = require('./app/controllers/users');
 const recipes = require('./app/controllers/admin');
+const chefs = require('./app/controllers/chefs');
 
 routes.get('/', function(req, res){
   return res.redirect('/users')
@@ -19,5 +20,12 @@ routes.get("/admin/recipes/:id/edit", recipes.edit); // Mostrar formulário de e
 routes.post("/admin/recipes", recipes.post); // Cadastrar nova receita
 routes.put("/admin/recipes", recipes.put); // Editar uma receita
 routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita
+
+routes.get("/admin/chefs", chefs.index);
+routes.get("/admin/chefs/create", chefs.create);
+routes.get("/admin/chefs/:id", chefs.show);
+routes.post("/admin/chefs", recipes.post); // Cadastrar novo chef
+routes.put("/admin/chefs/:id", recipes.put); // Editar um chef
+routes.delete("/admin/chefs", recipes.delete); // Deletar um chef
 
 module.exports = routes
