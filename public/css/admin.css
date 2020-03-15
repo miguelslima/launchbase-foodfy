@@ -74,15 +74,15 @@ section #admin-chef {
 }
 
 footer {
-  height: 62px;
+
   background: #eeeeee;
-  margin-top: 50px;
   text-align: center;
   font-size: 14px;
   line-height: 16px;
   color: #999999;
   display: grid;
   align-content: center;
+  padding: 20px;
   margin-top: auto;
 }
 
@@ -225,5 +225,11 @@ input::placeholder {
   font-size: 24px;
   color: #111111;
   line-height: 28px; 
-  padding-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+/* Edit  */
+
+section  {
+  padding-left: 231px;
 }

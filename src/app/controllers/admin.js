@@ -1,6 +1,4 @@
 
-const fs = require('fs');
-
 exports.index = function (req, res) {
 
   return res.render("admin/index", {recipes: data.recipes})

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="card">
+
 
   <section 
     class="avatar" 
@@ -10,7 +10,7 @@
   </section>
 
   <section class="details">
-    <form method="POST" action="/chefs?_method=PUT">
+    <form method="POST" action="/admin/chefs?_method=PUT">
       
         <h3> Editando Chef </h3>
 
@@ -18,7 +18,7 @@
 
         <input 
           type="hidden" 
-          name="id" 
+          name="id"
           value={{chef.id}}
         >
     </form>
@@ -39,7 +39,7 @@
     </script>
 
   </section>
-</div>
+
 
 
 {% endblock content %}
