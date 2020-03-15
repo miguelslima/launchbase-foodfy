@@ -56,7 +56,7 @@ module.exports = {
     }
 
     Chef.update(req.body, function() {
-      return res.redirect(`/chefs/${req.body.id}`)
+      return res.redirect(`chefs/${req.body.id}`)
     })
   },
 

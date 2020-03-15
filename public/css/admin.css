@@ -230,6 +230,7 @@ input::placeholder {
 
 /* Edit  */
 
-section .details-edit  {
+.details-edit  {
+  padding-top: 50px;
   padding-left: 231px;
 }
