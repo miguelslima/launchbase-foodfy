@@ -1,4 +1,4 @@
-{% extends "layout.njk" %}
+{% extends "chefs/layout.njk" %}
 
 {% block content %}
 
@@ -12,7 +12,7 @@
   <section class="details">
     <form method="POST" action="/chefs?_method=PUT">
       
-        <h3> Editar Chef </h3>
+        <h3> Editando Chef </h3>
 
         {% include 'chefs/fields.njk' %}
 

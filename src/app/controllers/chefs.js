@@ -1,28 +1,51 @@
-exports.index = function (req, res) {
+const Chef = require('../models/chef');
 
-  return res.render("chef/index")
-}
+module.exports = {
+  index(req, res) {
+    Chef.all(function(chefs){
 
-exports.create = function(req, res){
-  return res.send("Create")
-}
+      res.render('chefs/index', {chefs})  
+    })
+  },
 
-exports.show = function(req, res){
-  return res.send("Show")
-}
+  create(req, res){
+    return res.render("chefs/create");
+  },
 
-exports.edit = function(req, res){
-  return res.send("Edit")
-}
+  show(req, res){
+    Chef.find(req.params.id, function(chef){
+      if (!chef) return res.send("Chef not found!")
 
-exports.post = function(req, res){
-  return res.send("Post")
-  }
+      Chef.findChefRecipe(req.params.id, function(){
+        res.render("chefs/show", { chef })
+      })
+    }) 
+  },
+
+  edit(req, res){
+    return res.send("Edit")
+  },
+
+  post(req, res){
+    const keys = Object.keys(req.body)
   
-exports.put = function(req, res) {
-  return res.send("Put")
-}
+    for(key of keys){
+      if(req.body[key] == ""){
+        return res.send('Please fill all fields!')
+      }
+    }
 
-exports.delete = function(req, res) {
-  return res.send("Delete")
+    Chef.create(req.body, function(Chef){
+      
+      res.redirect(`chefs/${Chef.id}`)
+    })
+  },
+    
+  put(req, res) {
+    return res.send("Put")
+  },
+
+  delete(req, res) {
+    return res.send("Delete")
+  }
 }

@@ -37,6 +37,7 @@ section #admin-chef {
   padding-left: 50px;
   text-decoration: none;
   color: white;
+  text-transform: uppercase;
 }
 
 .menu a:hover{
@@ -57,7 +58,19 @@ section #admin-chef {
 }
 
 .form-chefs .btn {
+  padding: 8px 24px;
+  background-color: #6558C3; 
+  color: white;
+  border-radius: 4px;
+  margin-top: 32px;
+  width: 100%;
+  font-size: 16px;
   text-decoration: none;
+}
+
+.menu a.active {
+  font-weight: bold;
+  color: red;
 }
 
 footer {
@@ -76,4 +89,141 @@ footer {
 footer span {
   opacity: 80%;
   color: #999999;
+}
+
+/* Create Chef */
+
+.wrapper {
+  padding-top: 55px;
+  padding-left: 231px;
+}
+
+.details h3 {
+  font-size: 24px;
+  display: inline;
+  padding-right: 670px;
+}
+
+button[type="submit"],
+.btn-chef {
+  padding: 8px 24px;
+  background-color: #6558C3; 
+  color: white;
+  border-radius: 4px;
+  margin-top: 32px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.item {
+  padding-top: 30px;
+}
+
+.item div {
+  padding-bottom: 10px;
+}
+
+input {
+  width: 940px;
+  outline: none;
+  color: #aaa;
+  font-weight: bold;
+  font-size: 18px;
+  border: 1px solid #DDDDDD;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+/* Index Chef */
+
+#index-chef {
+  width: 940px;
+  padding-left: 231px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-chef {
+  display: grid;
+  grid-template-columns: 1fr;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.card-chef img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.card-info-chef {
+  margin-left: 20px;
+}
+
+.card-info-chef p {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #111111;
+  line-height: 21px;
+}
+
+.card-info-chef a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #6558C3;
+}
+
+/* Show Chef */
+
+.chef {
+  padding-left: 231px;
+}
+
+.infochef {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.cardchef img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-left: 450px;
+}
+
+.btn-chef {
+  margin-left: 621px;
+}
+
+.cardtitle-chef {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 36px;
+  color: #111111;
+  line-height: 42px;
+  padding-bottom: 4px;
+}
+
+.total-receipt {
+  text-align: center;
+  font-size: 20px;
+  color: #777777;
+  line-height: 24px;
+  padding-bottom: 50px;
+}
+
+.chef h2 {
+  font-size: 24px;
+  color: #111111;
+  line-height: 28px; 
+  padding-bottom: 30px;
 }

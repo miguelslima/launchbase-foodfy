@@ -1,4 +1,4 @@
-{%extends 'admin/chefs/layout.njk'%}
+{%extends 'chefs/layout.njk'%}
 
   {% block title %}
 
@@ -8,31 +8,31 @@
 
   {% block content %}
 
-  <section class="view-chef">
-    <div class="info-chef">
+  <section class="chef">
+    <div class="infochef">
       <h2> Chef: {{chef.name }} </h2>
       <span> 
         <a href="{{chef.id}}/edit" class="btn-chef"> Editar </a>
       </span>
     </div>
   
-    <div class="card-chef">
-      <div class="card-image-chef">
+    <div class="cardchef">
+      <div class="cardimage-chef">
         <img src="{{chef.avatar_url}}" alt="Foto chef">
       </div>
-      <div class="card-title-chef">
+      <div class="cardtitle-chef">
         <p>{{chef.name}}</p>
       </div>
+    </div>
       <div class="total-receipt">
         <p>{{chef.total_receipt}} receita(s)</p>
       </div>
-    </div>
-
+    <h2>Receitas</h2>
     <div class="cards-admin">
       {% for receipt in receipts %}
         <div class="card">
           <div class="card__image">
-            <img src="{{receipt.image" alt="Foto receita">
+            
           </div>
           <div class="card-info">
             <div class="card-title">
@@ -47,5 +47,4 @@
       {%endfor%}
     </div>
   </section>
-
-  {% endblock %}
+ {% endblock content %}
