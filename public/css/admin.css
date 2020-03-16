@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Roboto&display=swap";
+  @import "https://fonts.googleapis.com/css?family=Roboto&display=swap";
 
 * {
   margin: 0;
@@ -73,8 +73,8 @@ section #admin-chef {
   color: red;
 }
 
-footer {
-
+footer,
+.footer {
   background: #eeeeee;
   text-align: center;
   font-size: 14px;
@@ -105,7 +105,8 @@ footer span {
 }
 
 button[type="submit"],
-.btn-chef {
+.btn-chef,
+.addRecipe {
   padding: 8px 24px;
   background-color: #6558C3; 
   color: white;
@@ -234,3 +235,19 @@ input::placeholder {
   padding-top: 50px;
   padding-left: 231px;
 }
+
+#admin h1 {
+  padding-left: 231px;
+  display: inline;
+}
+
+.form-recipe {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.form-recipe span {
+  padding-left: 600px;
+}
+

@@ -4,8 +4,8 @@
 <head>
   {% block head%}
   <title>Foodfy</title>
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/receipt.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  
   {%endblock%}
   
 </head>
@@ -13,6 +13,10 @@
 <body>
   <header>
     <a href="/"><img src="/assets/logo2.png" alt="Logo Foodfty"></a>
+    <div class="menu">
+        <a href="/admin/recipes">Receitas</a>
+        <a href="/admin/chefs"> Chefs</a>
+    </div>
   </header>
 
   {% block content %} 
@@ -22,6 +26,7 @@
   <footer class="footer">
     <p>Todos direitos reservados, receitas Foodfy - <span>2020 </span>®</p>
   </footer>
+  
   <script src="/js/create.js"></script>
   <script src="/js/scripts.js"></script>
 </body>
