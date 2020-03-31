@@ -63,6 +63,7 @@ section #admin-chef {
   color: white;
   border-radius: 4px;
   margin-top: 32px;
+  margin-bottom: 20px;
   width: 100%;
   font-size: 16px;
   text-decoration: none;
@@ -112,6 +113,7 @@ button[type="submit"],
   color: white;
   border-radius: 4px;
   margin-top: 32px;
+  margin-bottom: 20px;
   font-size: 16px;
   text-decoration: none;
 }
