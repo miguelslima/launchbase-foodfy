@@ -26,7 +26,7 @@ module.exports = {
         information,
         created_at,
         chef_id
-      ) VALUES ($1, $2, $3, $4, $5, $6)
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7)
       RETURNING id
     `
 
@@ -37,7 +37,7 @@ module.exports = {
       data.prepatatiom,
       data.information,
       date(Date.now()).iso,
-      chef_id,
+      data.chef
     ]
 
     db.query(query, values, function(err, results){

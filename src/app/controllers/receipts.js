@@ -1,23 +1,23 @@
-const Chef = require('../models/chef');
+const Receipt = require('../models/receipt');
 
 module.exports = {
   index(req, res) {
-    Chef.all(function(chefs){
+    Chef.all(function(receipts){
 
-      res.render('chefs/index', {chefs})  
+      res.render('receipts/index', {receipts})  
     })
   },
 
   create(req, res){
-    return res.render("chefs/create");
+    return res.render("receipts/create");
   },
 
   show(req, res){
     Chef.find(req.params.id, function(chef){
-      if (!chef) return res.send("Chef not found!")
+      if (!chef) return res.send("Receipt not found!")
 
       Chef.findChefRecipe(req.params.id, function(){
-        res.render("chefs/show", { chef })
+        res.render("receipts/show", { chef })
       })
     }) 
   },
@@ -25,10 +25,10 @@ module.exports = {
   edit(req, res){
     Chef.find(req.params.id, function(chef){
       if(!chef) {
-        return res.send('Chef not found!');
+        return res.send('Receipt not found!');
       }
 
-      return res.render('chefs/edit', { chef });
+      return res.render('receipts/edit', { chef });
     })
   },
 
@@ -43,7 +43,7 @@ module.exports = {
 
     Chef.create(req.body, function(Chef){
       
-      res.redirect(`chefs/${Chef.id}`)
+      res.redirect(`receipts/${Chef.id}`)
     })
   },
     
@@ -56,13 +56,13 @@ module.exports = {
     }
 
     Chef.update(req.body, function() {
-      return res.redirect(`chefs/${req.body.id}`)
+      return res.redirect(`receipts/${req.body.id}`)
     })
   },
 
   delete(req, res) {
     Chef.delete(req.body.id, function() {
-      return res.redirect(`/admin/chefs`)
+      return res.redirect(`/admin/receipts`)
     })
   }
 }
