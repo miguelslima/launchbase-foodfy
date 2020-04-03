@@ -5,8 +5,9 @@
 <form class="wrapper" method="POST" action="/admin/recipes">
   <section class="details">
     <h3> Editando Receita </h3> 
-        <input type="hidden" name="id" value="{{ receipt.id }}">
-        {% include 'admin/fields.njk' %}
+        {% include 'receipts/fields.njk' %}
+        <input type="hidden" name="id" value="{{ receipts.id }}">
+</form>
 
     <div class="delete">  
       <span>

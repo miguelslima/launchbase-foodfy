@@ -27,8 +27,8 @@ module.exports = {
   },
 
   edit(req, res){
-    Receipt.find(req.params.id, function(chef){
-      if(!chef) {
+    Receipt.find(req.params.id, function(receipt){
+      if(!receipt) {
         return res.send('Receipt not found!');
       }
 
@@ -45,9 +45,9 @@ module.exports = {
       }
     }
 
-    Receipt.create(req.body, function(Chef){
+    Receipt.create(req.body, function(receipt){
       
-      res.redirect(`recipes/${Chef.id}`)
+      res.redirect(`recipes/${receipt.id}`)
     })
   },
     

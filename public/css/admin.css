@@ -231,7 +231,7 @@ input::placeholder {
   margin-bottom: 20px;
 }
 
-/* Edit  */
+/* Edit Chef */
 
 .details-edit  {
   padding-top: 50px;
@@ -250,6 +250,39 @@ input::placeholder {
 }
 
 .form-recipe span {
-  padding-left: 600px;
+  padding-left: 650px;
+}
+
+/* Index Receitas */
+
+section #admin{
+  display: flex;
+  justify-content: center;
+}
+
+section #admin span {
+  padding-bottom: 20px;
+}
+
+section .cards-admin {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.card__image img {
+  border-radius: 4px;
+  width: 300px;
+}
+
+.card__image {
+  padding-top: 5px ;
+}
+
+.card .card-info a {
+  text-decoration: none;
 }
 

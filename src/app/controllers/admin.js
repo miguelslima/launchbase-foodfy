@@ -2,9 +2,9 @@ const Receipt = require('../models/Receipt');
 
 module.exports = {
   index(req, res) {
-    Receipt.all(function(Receipts){
+    Receipt.all(function(recipes){
 
-      res.render('Receipts/index', {Receipts})  
+      res.render('Receipts/index', {recipes})  
     })
   },
 

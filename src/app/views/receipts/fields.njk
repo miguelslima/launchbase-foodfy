@@ -61,6 +61,7 @@
           type="text" 
           placeholder="Ingredientes"
           name="ingredients[]" 
+          value="{{ ingredient }}"
         >
       </div>
       {% endif %}
@@ -76,11 +77,11 @@
 
           {% if recipe %}
 
-          {% for preparation in receipt.preparations %}
+          {% for preparation in receipt.preparation %}
           <div class="preparation">
             <input
               type="text"
-              name="preparations[]"
+              name="preparation[]"
               placeholder="Preparação"
               value="{{preparation}}"
             >
@@ -91,7 +92,7 @@
         <div class="preparation">
             <input
               type="text"
-              name="preparations[]"
+              name="preparation[]"
               placeholder="Preparação"
               value="{{preparation}}"
             >
@@ -108,7 +109,7 @@
     <div>
       <input 
         type="text" 
-        name="informations" 
+        name="information" 
         placeholder="Informações adicionais"
         value="{{ receipt.information }}"
       >

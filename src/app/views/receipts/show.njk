@@ -3,6 +3,7 @@
 {% block head %}
 <title>Receita - {{receipt.title}}</title>
 <link rel="stylesheet" href="/css/receipt.css">
+
 {% endblock %}
 
 {% block content %}
@@ -45,7 +46,7 @@
 
         <div class="topic-content">
           <ul>
-            {% for preparation in receipt.preparations %}
+            {% for preparation in receipt.preparation %}
               <li>{{preparation}}</li>
             {% endfor %}
           </ul>
@@ -59,7 +60,7 @@
         </div>
 
         <div class="topic-content">
-          <p>{{receipt.informations}}</p>
+          <p>{{receipt.information}}</p>
         </div>
       </div>
     </div>
