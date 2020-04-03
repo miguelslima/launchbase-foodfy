@@ -13,11 +13,14 @@ module.exports = {
   },
 
   show(req, res){
-    Receipt.find(req.params.id, function(Receipt){
-      if (!Receipt) return res.send("Receipt not found!")
-
-      Receipt.findReceiptRecipe(req.params.id, function(){
-        res.render("Receipts/show", { Receipt })
+    
+    Receipt.find(req.params.id, function(receipt){
+      if (!receipt) {
+        return res.send("Receipt not found!")
+      }
+      console.log(receipt)
+      Receipt.findRecipe(req.params.id, function(){
+        res.render("receipts/show", { receipt })
       })
     }) 
   },
@@ -34,7 +37,7 @@ module.exports = {
 
   post(req, res){
     const keys = Object.keys(req.body)
-  
+    
     for(key of keys){
       if(req.body[key] == ""){
         return res.send('Please fill all fields!')
@@ -56,7 +59,7 @@ module.exports = {
     }
 
     Receipt.update(req.body, function() {
-      return res.redirect(`Receipts/${req.body.id}`)
+      return res.redirect(`recipes/${req.body.id}`)
     })
   },
 

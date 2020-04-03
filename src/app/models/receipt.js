@@ -7,7 +7,7 @@ module.exports = {
     db.query(
       `SELECT receipts.*, count(chefs) AS total_recipe
       FROM receipts
-      LEFT JOIN chefs ON (receipts.id = chef.id)
+      LEFT JOIN chefs ON (receipts.id = chefs.id)
       GROUP BY receipts.id
       ORDER BY total_recipe ASC`, function(err, results){
       if(err) {
@@ -22,8 +22,8 @@ module.exports = {
         image,
         title,
         ingredients,
-        preparation,
-        information,
+        preparations,
+        informations,
         created_at,
         chef_id
       ) VALUES ($1, $2, $3, $4, $5, $6, $7)
@@ -34,8 +34,8 @@ module.exports = {
       data.image,
       data.title,
       data.ingredients,
-      data.prepatatiom,
-      data.information,
+      data.preparations,
+      data.informations,
       date(Date.now()).iso,
       data.chef
     ]
@@ -49,15 +49,20 @@ module.exports = {
     })
   },
   find(id, callback) {
-    db.query(`SELECT * FROM recepeits WHERE id = $1`, [id], function(err, results){
+    db.query(`
+      SELECT receipts.*, chefs.name AS chef_name
+      FROM receipts
+      LEFT JOIN chefs on (receipts.chef_id = chefs.id)
+      WHERE receipts.id = $1`, [id], function(err, results){
+
       if(err) {
-        return res.send('Database error');
+        throw `Database Error! ${err}`;
       }
 
       callback(results.rows[0]);
     })
   },
-  findChefRecipe(id, callback){
+  findRecipe(id, callback){
     db.query(`SELECT receipts.*, chefs.name AS chef_name
     FROM receipts
     LEFT JOIN chefs ON (receipts.chef_id = chefs.id)
@@ -83,7 +88,7 @@ module.exports = {
       data.image,
       data.title,
       data.ingredients,
-      data.prepatatiom,
+      data.prepatation,
       data.information,
       chef_id,
     ]

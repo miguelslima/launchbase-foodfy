@@ -3,6 +3,7 @@ const routes = express.Router();
 const users = require('./app/controllers/users');
 const recipes = require('./app/controllers/admin');
 const chefs = require('./app/controllers/chefs');
+const receipts = require('./app/controllers/receipts');
 
 routes.get('/', function(req, res){
   return res.redirect('/users')

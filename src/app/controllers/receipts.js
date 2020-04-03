@@ -2,7 +2,7 @@ const Receipt = require('../models/receipt');
 
 module.exports = {
   index(req, res) {
-    Chef.all(function(receipts){
+    Receipt.all(function(receipts){
 
       res.render('receipts/index', {receipts})  
     })
@@ -13,22 +13,26 @@ module.exports = {
   },
 
   show(req, res){
-    Chef.find(req.params.id, function(chef){
-      if (!chef) return res.send("Receipt not found!")
+    Receipt.find(req.params.id, function(receipt){
+      
+      if (!receipt) {
+        return res.send("Receipt not found!")
+      }
 
-      Chef.findChefRecipe(req.params.id, function(){
-        res.render("receipts/show", { chef })
-      })
+      receipt.ingredients = receipt.ingredients.split(','); 
+      receipt.preparations = receipt.preparations.split(',');
+
+        res.render("receipts/show", { receipt })
     }) 
   },
 
   edit(req, res){
-    Chef.find(req.params.id, function(chef){
+    Receipt.find(req.params.id, function(chef){
       if(!chef) {
         return res.send('Receipt not found!');
       }
 
-      return res.render('receipts/edit', { chef });
+      return res.render('receipts/edit', { receipt });
     })
   },
 
@@ -41,9 +45,9 @@ module.exports = {
       }
     }
 
-    Chef.create(req.body, function(Chef){
+    Receipt.create(req.body, function(Chef){
       
-      res.redirect(`receipts/${Chef.id}`)
+      res.redirect(`recipes/${Chef.id}`)
     })
   },
     
@@ -55,13 +59,13 @@ module.exports = {
       return res.send('Please, fill all fields');
     }
 
-    Chef.update(req.body, function() {
+    Receipt.update(req.body, function() {
       return res.redirect(`receipts/${req.body.id}`)
     })
   },
 
   delete(req, res) {
-    Chef.delete(req.body.id, function() {
+    Receipt.delete(req.body.id, function() {
       return res.redirect(`/admin/receipts`)
     })
   }

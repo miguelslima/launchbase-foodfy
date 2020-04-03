@@ -1,17 +1,17 @@
-{% extends "admin/layout.njk" %}
+{% extends "receipts/layout.njk" %}
 
 {% block content %}
 
 <form class="wrapper" method="POST" action="/admin/recipes">
   <section class="details">
     <h3> Editando Receita </h3> 
-        <input type="hidden" name="id" value="{{ recipe.id }}">
+        <input type="hidden" name="id" value="{{ receipt.id }}">
         {% include 'admin/fields.njk' %}
 
     <div class="delete">  
       <span>
         <form id="delete" method="POST" action="/admin/recipes?_method=DELETE">
-          <input type="hidden" name="id" value="{{ recipe.id }}">
+          <input type="hidden" name="id" value="{{ receipt.id }}">
           <button type="submit">Deletar receita</button>
       </span>
     </div>
