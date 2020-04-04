@@ -6,7 +6,7 @@
         type="url" 
         name="image" 
         placeholder="http://"
-        value="{{ receipt.image }}"
+        value="{{ recipes.image }}"
       >
     </div>
   </div>
@@ -18,7 +18,7 @@
         type="text" 
         name="title" 
         placeholder="Nome da receita"
-        value="{{ receipt.title }}"
+        value="{{ recipes.title }}"
       >
     </div>
   </div>
@@ -31,7 +31,7 @@
         type="text" 
         name="author" 
         placeholder="Nome do Autor"
-        value="{{ receipt.author }}"
+        value="{{ recipes.chef_name }}"
       >
     </div>
   </div>
@@ -43,7 +43,7 @@
     <div id="create-ingredients">
       {% if recipe %}
 
-      {% for ingredient in receipt.ingredients %}
+      {% for ingredient in recipes.ingredients %}
       <div class="ingredient">
         <input
           type="text"
@@ -61,7 +61,7 @@
           type="text" 
           placeholder="Ingredientes"
           name="ingredients[]" 
-          value="{{ ingredient }}"
+          value="{{ ingredients }}"
         >
       </div>
       {% endif %}
@@ -77,7 +77,7 @@
 
           {% if recipe %}
 
-          {% for preparation in receipt.preparation %}
+          {% for preparation in recipes.preparation %}
           <div class="preparation">
             <input
               type="text"
@@ -94,7 +94,7 @@
               type="text"
               name="preparation[]"
               placeholder="Preparação"
-              value="{{preparation}}"
+              value="{{preparations}}"
             >
           </div>
         {%endif%}
@@ -111,7 +111,7 @@
         type="text" 
         name="information" 
         placeholder="Informações adicionais"
-        value="{{ receipt.information }}"
+        value="{{ recipes.information }}"
       >
     </div>
   </div>

@@ -1,7 +1,7 @@
-{% extends "receipts/layout.njk" %}
+{% extends "recipes/layout.njk" %}
 
 {% block head %}
-<title>Receita - {{receipt.title}}</title>
+<title>Receita - {{recipes.title}}</title>
 <link rel="stylesheet" href="/css/receipt.css">
 
 {% endblock %}
@@ -9,16 +9,16 @@
 {% block content %}
 
 <div class="wrapper">
-  <h1>{{receipt.title}}</h1>       
+  <h1>{{recipes.title}}</h1>       
   <span>
-    <a href="{{ receipt.id }}/edit" class="addRecipe">Editar receita</a>
+    <a href="{{ recipes.id }}/edit" class="addRecipe">Editar receita</a>
   </span>
   <div class="receipt">
     <div class="receipt-header">
-      <img src="{{receipt.image}}" alt="{{receipt.title}}" />
+      <img src="{{recipes.image}}" alt="{{recipes.title}}" />
       <div class="head-group">
-        <h2>{{receipt.title}}</h2>
-        <p>por {{receipt.chef_name}}</p>
+        <h2>{{recipes.title}}</h2>
+        <p>por {{recipes.chef_name}}</p>
       </div>
     </div>
 
@@ -31,7 +31,7 @@
 
         <div class="topic-content">
           <ul>
-            {% for ingredient in receipt.ingredients %}
+            {% for ingredient in recipes.ingredients %}
               <li>{{ingredient}}</li>
             {% endfor %}
           </ul>
@@ -46,7 +46,7 @@
 
         <div class="topic-content">
           <ul>
-            {% for preparation in receipt.preparation %}
+            {% for preparation in recipes.preparation %}
               <li>{{preparation}}</li>
             {% endfor %}
           </ul>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="topic-content">
-          <p>{{receipt.information}}</p>
+          <p>{{recipes.information}}</p>
         </div>
       </div>
     </div>

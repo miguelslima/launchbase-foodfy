@@ -1,4 +1,4 @@
-{% extends "receipts/layout.njk" %}
+{% extends "recipes/layout.njk" %}
 
 {% block content %}
 
@@ -14,16 +14,16 @@
     {% for recipe in recipes %}
     <div class="card" id="{{loop.index -1}}">
       <div class="card__image">
-        <img src="{{recipe.image}}">
+        <img src="{{recipes.image}}">
       </div>
       <div class="card-info">
         <div class="card-title">
-          <p>{{recipe.title}}</p>
+          <p>{{recipes.title}}</p>
         </div>
         <div class="card-author">
-          <p>{{recipe.author}}</p>
+          <p>{{recipes.author}}</p>
         </div>
-        <a href="recipes/{{recipe.id}}">Visualizar</a>
+        <a href="recipes/{{recipes.id}}">Visualizar</a>
       </div>
     </div>
     {% endfor %}

@@ -5,9 +5,9 @@ module.exports = {
   all(callback) {
 
     db.query(
-      `SELECT chefs.*, count(receipts) AS total_recipe
+      `SELECT chefs.*, count(recipes) AS total_recipe
       FROM chefs
-      LEFT JOIN receipts ON (chefs.id = receipts.chef_id)
+      LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
       GROUP BY chefs.id
       ORDER BY total_recipe ASC`, function(err, results){
       if(err) {
@@ -50,9 +50,9 @@ module.exports = {
     })
   },
   findChefRecipe(id, callback){
-    db.query(`SELECT receipts.*, chefs.name AS chef_name
-    FROM receipts
-    LEFT JOIN chefs ON (receipts.chef_id = chefs.id)
+    db.query(`SELECT recipes.*, chefs.name AS chef_name
+    FROM recipes
+    LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
     WHERE chefs.id = $1`, [id], function(err, results){
       if(err) throw `Database Error! ${err}`
       callback(results.rows)

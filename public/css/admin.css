@@ -17,7 +17,6 @@ body, html{
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
 }
 
 body header {
@@ -74,6 +73,8 @@ section #admin-chef {
   color: red;
 }
 
+
+
 footer,
 .footer {
   background: #eeeeee;
@@ -84,7 +85,6 @@ footer,
   display: grid;
   align-content: center;
   padding: 20px;
-  margin-top: auto;
 }
 
 footer span {

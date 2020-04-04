@@ -26,12 +26,13 @@ module.exports = {
   },
 
   edit(req, res){
-    Receipt.find(req.params.id, function(Receipt){
-      if(!Receipt) {
+    console.log("chegou aqui admin")
+    Receipt.find(req.params.id, function(receipts){
+      if(!receipts) {
         return res.send('Receipt not found!');
       }
 
-      return res.render('Receipts/edit', { Receipt });
+      return res.render('receipts/edit', { receipts });
     })
   },
 
