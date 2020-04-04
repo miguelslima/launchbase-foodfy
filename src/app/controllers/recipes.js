@@ -49,6 +49,10 @@ module.exports = {
       return res.send("Please, fill all fields");
     }
 
+    if (req.files.lenght == 0) {
+      return res.send('Please, send at least one image');
+    }
+
     Recipe.create(req.body, function(recipe){
       return res.redirect(`recipes/${recipe.id}`);
     })
