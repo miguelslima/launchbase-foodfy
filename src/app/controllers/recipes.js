@@ -2,72 +2,76 @@ const Recipe = require('../models/recipe');
 
 module.exports = {
   index(req, res) {
-    Recipe.all(function(recipe){
-
-      res.render('recipes/index', {recipe})  
+    Recipe.all(function(recipes){
+      res.render('recipes/index', {recipes})  
     })
   },
 
   create(req, res){
-    return res.render("recipes/create");
+    Recipe.chefsSelect(function(options){
+      
+      return res.render("recipes/create", {chefOptions: options});
+    })
   },
 
   show(req, res){
-    Recipe.find(req.params.id, function(recipes){
+
+    Recipe.find(req.params.id, function(recipe){
       
-      if (!recipes) {
+      if (!recipe) {
         return res.send("Recipe not found!")
       }
-
-      recipes.ingredients = recipes.ingredients.split(','); 
-      recipes.preparations = recipes.preparations.split(',');
-
-        res.render("recipes/show", { recipes })
+      
+        res.render("recipes/show", { recipe })
     }) 
   },
 
   edit(req, res){
-  
+    
     Recipe.find(req.params.id, function(recipe){
       if(!recipe) {
         return res.send('Recipe not found!');
       }
 
-      return res.render('recipes/edit', { recipes });
-    })
-  },
-
-  post(req, res){
-    const keys = Object.keys(req.body)
-  
-    for(key of keys){
-      if(req.body[key] == ""){
-        return res.send('Please fill all fields!')
-      }
-    }
-
-    Recipe.create(req.body, function(recipe){
+      Recipe.chefsSelect(function(options){
       
-      res.redirect(`recipes/${recipe.id}`)
+        return res.render('recipes/edit', { recipe, chefOptions: options});
+      })
     })
   },
+
+  post(req, res) {
     
-  put(req, res) {
     const keys = Object.keys(req.body);
 
     for (key of keys) {
       if (req.body[key] == "")
-      return res.send('Please, fill all fields');
+      return res.send("Please, fill all fields");
+    }
+
+    Recipe.create(req.body, function(recipe){
+      return res.redirect(`recipes/${recipe.id}`);
+    })
+    
+  },
+    
+  put(req, res){
+    const keys = Object.keys(req.body)
+
+    for (key of keys) {
+      if (req.body[key] == "") res.send('Please, fill all fields!')
     }
 
     Recipe.update(req.body, function() {
-      return res.redirect(`recipes/${req.body.id}`)
+
+      return res.redirect(`/admin/recipes/${req.body.id}`)
     })
+    
   },
 
   delete(req, res) {
     Recipe.delete(req.body.id, function() {
-      return res.redirect(`/recipes`)
+      return res.redirect(`/admin/recipes`)
     })
   }
 }

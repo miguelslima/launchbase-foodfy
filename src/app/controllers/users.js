@@ -1,10 +1,14 @@
-const db = require('../../config/db');
+const Recipe = require('../models/Recipe')
+const Chef = require('../models/Chef')
+
 
 module.exports = {
 
   index(req, res) {
     
-    return res.render("users/index")
+    Recipe.all(function(recipes){
+      res.render('users/index', {recipes})  
+    })
   },
 
   about(req, res){
@@ -12,7 +16,11 @@ module.exports = {
   },
 
   recipes(req, res){
-    return res.render('users/recipes')
+
+    Recipe.all(function(recipes){
+      res.render('users/recipes', {recipes})  
+    })
+
   },
 
   recipe (req, res) {

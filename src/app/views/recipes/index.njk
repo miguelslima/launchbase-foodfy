@@ -14,16 +14,16 @@
     {% for recipe in recipes %}
     <div class="card" id="{{loop.index -1}}">
       <div class="card__image">
-        <img src="{{recipes.image}}">
+        <img src="{{recipe.image}}">
       </div>
       <div class="card-info">
         <div class="card-title">
-          <p>{{recipes.title}}</p>
+          <p>{{recipe.title}}</p>
         </div>
         <div class="card-author">
-          <p>{{recipes.author}}</p>
+          <p> por {{recipe.chef_name}}</p>
         </div>
-        <a href="recipes/{{recipes.id}}">Visualizar</a>
+        <a href="recipes/{{recipe.id}}">Visualizar</a>
       </div>
     </div>
     {% endfor %}

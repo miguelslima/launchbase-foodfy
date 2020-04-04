@@ -5,11 +5,10 @@ module.exports = {
   all(callback) {
 
     db.query(
-      `SELECT recipes.*, count(chefs) AS total_recipe
+      `SELECT recipes.*, chefs.name AS chef_name      
       FROM recipes
-      LEFT JOIN chefs ON (recipes.id = chefs.id)
-      GROUP BY recipes.id
-      ORDER BY total_recipe ASC`, function(err, results){
+      LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+      `, function(err, results){
       if(err) {
         throw `Database Error! ${err}`;
       }
@@ -37,7 +36,7 @@ module.exports = {
       data.preparation,
       data.information,
       date(Date.now()).iso,
-      data.chef
+      data.chef.id
     ]
     
     db.query(query, values, function(err, results){
@@ -52,7 +51,7 @@ module.exports = {
     db.query(`
       SELECT recipes.*, chefs.name AS chef_name
       FROM recipes
-      LEFT JOIN chefs on (recipes.chef_id = chefs.id)
+      LEFT JOIN chefs on (chefs.id = recipes.chef_id)
       WHERE recipes.id = $1`, [id], function(err, results){
 
       if(err) {
@@ -62,35 +61,33 @@ module.exports = {
       callback(results.rows[0]);
     })
   },
-  findRecipe(id, callback){
-    db.query(`SELECT recipes.*, chefs.name AS chef_name
+  findBy(filter){
+    return db.query(`
+    SELECT recipes.*, chefs.name AS chef_name
     FROM recipes
     LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-    WHERE chefs.id = $1`, [id], function(err, results){
-      if(err) throw `Database Error! ${err}`
-      callback(results.rows)
-    })
-    
+    WHERE recipes.title ILIKE '%${filter}%'`)
   },
   update(data, callback){
     const query = `
-      UPDATE recipes SET
-        image($1),
-        title($2),
-        ingredients($3),
-        preparation($4),
-        information($5),
-        chef_id($6)
-      WHERE id = $7
+    UPDATE recipes SET
+      image=($1),
+      title=($2),
+      ingredients=($3),
+      preparation=($4),
+      information=($5),
+      chef_id=($6)
+    WHERE id = $7
     `
 
     const values = [
       data.image,
       data.title,
       data.ingredients,
-      data.prepatation,
+      data.preparation,
       data.information,
-      chef_id,
+      data.chef,
+      data.id
     ]
 
     db.query(query, values, function(err, results){
@@ -108,6 +105,15 @@ module.exports = {
       }
 
       return callback();
+    })
+  },
+  chefsSelect(callback){
+    db.query(`SELECT name, id FROM chefs`, function(err, results){
+      if(err) {
+        throw `Database Error! ${err}`;
+      }
+
+      return callback(results.rows);
     })
   }
 }

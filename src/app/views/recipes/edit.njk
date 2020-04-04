@@ -5,17 +5,19 @@
   <section class="details"> 
       <form class="wrapper" method="POST" action="/admin/recipes?_method=PUT">
         <h3> Editando Receita </h3> 
-          <input type="hidden" name="id" value="{{ recipes.id }}">
+        <button type="submit">Salvar</button>
+          <div class="delete">  
+            <span>
+              <form id="delete" method="POST" action="/admin/recipes?_method=DELETE">
+                <input type="hidden" name="id" value="{{ recipe.id }}">
+                <button type="submit">Deletar receita</button>
+            </span>
+          </div>
+          <input type="hidden" name="id" value="{{ recipe.id }}">
           {% include 'recipes/fields.njk' %}
       </form>
 
-      <div class="delete">  
-        <span>
-          <form id="delete" method="POST" action="/admin/recipes?_method=DELETE">
-            <input type="hidden" name="id" value="{{ recipes.id }}">
-            <button type="submit">Deletar receita</button>
-        </span>
-      </div>
+
     </form>
   </section>
 
