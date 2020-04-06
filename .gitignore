@@ -2,7 +2,6 @@
 # Created by https://www.gitignore.io/api/node,react,reactnative,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=node,react,reactnative,visualstudiocode
 db.js
-teste/
 ### Node ###
 # Logs
 logs
@@ -46,6 +45,8 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+teste/
+public/images/
 
 # TypeScript v1 declaration files
 typings/

@@ -4,30 +4,51 @@ const Chef = require('../models/Chef')
 
 module.exports = {
 
-  index(req, res) {
+  async index(req, res){
     
-    Recipe.all(function(recipes){
-      res.render('users/index', {recipes})  
-    })
+      let results = await Recipe.all()
+      const recipes = results.rows
+      return res.render("users/index", { recipes })
+
   },
 
-  about(req, res){
-    return res.render('users/about')
+  async about(req, res){
+    return await res.render('users/about')
   },
 
-  recipes(req, res){
+  async recipes(req, res){
 
     Recipe.all(function(recipes){
       res.render('users/recipes', {recipes})  
     })
 
   },
+  async recipes(req, res){
+    const { filter } = req.query
 
-  recipe (req, res) {
-    return res.render('/users/recipe')
+    if (filter) {
+      let results = await Recipe.findBy(filter)
+      const recipes = results.rows[0]  
+      return res.render("users/recipes", { recipes })
+      
+    } else { 
+      let results = await Recipe.all()
+      const recipes = results.rows
+      return res.render("users/recipes", { recipes })
+    }
   },
+  async show(req, res){
+    let results = await Recipe.find(req.params.id)
+    const recipes = results.rows[0]  
+    if (!recipes) res.send("Recipe not found!")
+    
+    return res.render("users/show", { recipes })
 
-  show(req, res){
-    res.render('users/recipe')
-  }
+  },
+  async chefs(req, res) {
+    let results = await Chef.all()
+    const chefs = results.rows
+    return res.render("users/chefs", { chefs })
+    
+  },
 }

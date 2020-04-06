@@ -2,35 +2,26 @@ const { date } = require('../../lib/utils')
 const db = require('../../config/db');
 
 module.exports = {
-  all(callback) {
-
-    db.query(
-      `SELECT recipes.*, chefs.name AS chef_name      
+  all(){
+    return db.query(`
+      SELECT recipes.*, chefs.name AS chef_name
       FROM recipes
-      LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-      `, function(err, results){
-      if(err) {
-        throw `Database Error! ${err}`;
-      }
-      callback(results.rows);      
-    })
+      LEFT JOIN chefs ON (recipes.chef_id = chefs.id)`)
   },
-  create(data, callback) {
+  create(data) {
     const query = `
       INSERT INTO recipes (
-        image,
         title,
         ingredients,
         preparation,
         information,
         created_at,
         chef_id
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+      ) VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING id
     `
 
     const values = [
-      data.image,
       data.title,
       data.ingredients,
       data.preparation,
@@ -39,27 +30,14 @@ module.exports = {
       data.chef.id
     ]
     
-    db.query(query, values, function(err, results){
-      if(err) {
-        throw `Database Error! ${err}`;
-      }
-      
-      callback(results.rows[0]);
-    })
+    return db.query(query, values);
   },
-  find(id, callback) {
-    db.query(`
+  find(id) {
+    return db.query(`
       SELECT recipes.*, chefs.name AS chef_name
       FROM recipes
       LEFT JOIN chefs on (chefs.id = recipes.chef_id)
-      WHERE recipes.id = $1`, [id], function(err, results){
-
-      if(err) {
-        throw `Database Error! ${err}`;
-      }
-
-      callback(results.rows[0]);
-    })
+      WHERE recipes.id = $1`, [id])
   },
   findBy(filter){
     return db.query(`
@@ -68,20 +46,18 @@ module.exports = {
     LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
     WHERE recipes.title ILIKE '%${filter}%'`)
   },
-  update(data, callback){
+  update(data){
     const query = `
     UPDATE recipes SET
-      image=($1),
-      title=($2),
-      ingredients=($3),
-      preparation=($4),
-      information=($5),
-      chef_id=($6)
-    WHERE id = $7
+      title=($1),
+      ingredients=($2),
+      preparation=($3),
+      information=($4),
+      chef_id=($5)
+    WHERE id = $6
     `
 
     const values = [
-      data.image,
       data.title,
       data.ingredients,
       data.preparation,
@@ -90,13 +66,7 @@ module.exports = {
       data.id
     ]
 
-    db.query(query, values, function(err, results){
-      if(err){
-        throw `Database Error! ${err}`;
-      }
-      callback();
-
-    })
+    return db.query(query, values);
   },
   delete(id, callback){
     db.query(`DELETE FROM recipes WHERE id = $1`, [id], function(err, results){
@@ -107,13 +77,13 @@ module.exports = {
       return callback();
     })
   },
-  chefsSelect(callback){
-    db.query(`SELECT name, id FROM chefs`, function(err, results){
-      if(err) {
-        throw `Database Error! ${err}`;
-      }
-
-      return callback(results.rows);
-    })
+  chefsSelect(){
+    return db.query(`SELECT name, id FROM chefs`)
+      
+  },
+  files(id) {
+      return db.query(`
+          SELECT * FROM files WHERE recipe_id = $1
+      `, [id])
   }
 }
